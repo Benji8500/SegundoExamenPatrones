@@ -20,15 +20,6 @@ public class PaginaDeFacebook implements  IPagina{
     }
     
 
-    private void notifyObserver(Imagen imagen) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void notifyObserver(Video video) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 	@Override
@@ -41,14 +32,27 @@ public class PaginaDeFacebook implements  IPagina{
        observerList.remove(observer);
     }
 
-    /*
-    notify observer when the attribute2 is updated
-     */
-    @Override
-    public void notifyObserver() {
-        for (IUsuario observer:observerList
-             ) {
-            observer.update(attribute2);
-        }
-    }
+	@Override
+	public void notifyObserver(Video video) {
+		for(IUsuario user: observerList) {
+			user.update("Nuevo video"+ video.getTitulo(),video);
+		}
+		
+	}
+
+	@Override
+	public void notifyObserver(Imagen imagen) {
+		
+		for(IUsuario user: observerList) {
+			UsuarioRegistrado parse = (UsuarioRegistrado) user;
+			if(parse.getQuieroImagenes()) {
+				user.update("Nueva imagen"+ imagen.getTitulo(),imagen);
+			}
+			
+		}
+	}
+
+
+
+    
 }
