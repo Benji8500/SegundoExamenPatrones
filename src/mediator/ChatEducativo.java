@@ -16,6 +16,7 @@ public class ChatEducativo implements ICanal {
     	for(Persona p: personasChat) {
     		if (colleague instanceof Estudiante) {
     			p.messageReceived(message);
+    			System.out.println("SSS");
     			
     			
     		}else if( colleague instanceof Docente) {

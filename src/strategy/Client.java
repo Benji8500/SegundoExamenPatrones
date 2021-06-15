@@ -5,14 +5,14 @@ public class Client {
 
         BaseDeDatos context= new BaseDeDatos();
 
-        context.setStrategy(new OrdenarCI());
-        context.execute();
+        context.setEstrategiaOrdenamiento(new OrdenarCI());
+        context.ordenar();
 
-        context.setStrategy(new OrdenarNombre());
-        context.execute();
+        context.setEstrategiaOrdenamiento(new OrdenarNombre());
+        context.ordenar();
 
-        context.setStrategy(new OrdenarFechaProfesion());
-        context.execute();
+        context.setEstrategiaOrdenamiento(new OrdenarFechaProfesion());
+        context.ordenar();
 
 
     }
